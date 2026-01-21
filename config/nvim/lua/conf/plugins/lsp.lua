@@ -30,7 +30,7 @@ return {
 
 		-- Mason setup
 		require("mason").setup({
-			ensure_installed = {},
+			ensure_installed = {"clangd", "clang-format"},
 		})
 
 		-- Mason-lspconfig setup
@@ -62,6 +62,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "black" },
+				cpp = { "clang-format" },
 			},
 		})
 
