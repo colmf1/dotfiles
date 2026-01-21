@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      create: true          # create parent directories if missing
+      relink: true          # overwrite existing symlinks if needed
+
+- clean: ['~']              # optional: remove broken symlinks in home (careful!)
+
+- link:
+    # Shell config (single file)
+    ~/.zshrc: .zshrc
+
+    # Hyprland config directory → symlink the whole folder
+    ~/.config/hypr: config/hypr
+
+    # Neovim config directory → symlink the whole folder
+    ~/.config/nvim: config/nvim
+
+- shell:
+  - command: git submodule update --init --recursive
+    description: Update submodules (if you add more later)
+  - command: echo "Dotfiles installed/up-to-date!"
+    description: Done!
